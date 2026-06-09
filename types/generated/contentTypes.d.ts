@@ -440,6 +440,66 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiMekanMekan extends Struct.CollectionTypeSchema {
+  collectionName: 'mekans';
+  info: {
+    displayName: 'Mekan';
+    pluralName: 'mekans';
+    singularName: 'mekan';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Aciklama_EN: Schema.Attribute.String;
+    Aciklama_TR: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Kapak_Resmi: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::mekan.mekan'> &
+      Schema.Attribute.Private;
+    Mekan_Adi: Schema.Attribute.String;
+    Puan: Schema.Attribute.Decimal;
+    publishedAt: Schema.Attribute.DateTime;
+    sehir: Schema.Attribute.Relation<'manyToOne', 'api::sehir.sehir'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSehirSehir extends Struct.CollectionTypeSchema {
+  collectionName: 'sehirs';
+  info: {
+    displayName: 'Sehir';
+    pluralName: 'sehirs';
+    singularName: 'sehir';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Ad: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Kisa_Bilgi: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::sehir.sehir'> &
+      Schema.Attribute.Private;
+    mekans: Schema.Attribute.Relation<'oneToMany', 'api::mekan.mekan'>;
+    publishedAt: Schema.Attribute.DateTime;
+    Ulke: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -951,6 +1011,8 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::mekan.mekan': ApiMekanMekan;
+      'api::sehir.sehir': ApiSehirSehir;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
