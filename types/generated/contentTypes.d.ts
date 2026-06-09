@@ -451,7 +451,7 @@ export interface ApiMekanMekan extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Aciklama_EN: Schema.Attribute.String;
+    Aciklama_EN: Schema.Attribute.Text;
     Aciklama_TR: Schema.Attribute.Text;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
