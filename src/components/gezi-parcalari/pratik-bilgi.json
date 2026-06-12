@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_gezi_parcalari_pratik_bilgis",
+  "info": {
+    "displayName": "Pratik_Bilgi",
+    "icon": "lightbulb"
+  },
+  "options": {},
+  "attributes": {
+    "Tur": {
+      "type": "string"
+    },
+    "Aciklama": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

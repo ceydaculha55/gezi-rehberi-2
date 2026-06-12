@@ -456,6 +456,13 @@ export interface ApiMekanMekan extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    Ek_Bilgiler: Schema.Attribute.DynamicZone<
+      [
+        'gezi-parcalari.ziyaretci-ipucu',
+        'gezi-parcalari.pratik-bilgi',
+        'gezi-parcalari.ek-bilgiler',
+      ]
+    >;
     Kapak_Resmi: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;

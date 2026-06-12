@@ -38,6 +38,14 @@
       "relation": "manyToOne",
       "target": "api::sehir.sehir",
       "inversedBy": "mekans"
+    },
+    "Ek_Bilgiler": {
+      "type": "dynamiczone",
+      "components": [
+        "gezi-parcalari.ziyaretci-ipucu",
+        "gezi-parcalari.pratik-bilgi",
+        "gezi-parcalari.ek-bilgiler"
+      ]
     }
   }
 }
