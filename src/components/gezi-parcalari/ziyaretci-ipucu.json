@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_gezi_parcalari_ziyaretci_ipucus",
+  "info": {
+    "displayName": "Ziyaretci_Ipucu",
+    "icon": "quote"
+  },
+  "options": {},
+  "attributes": {
+    "Baslik": {
+      "type": "string"
+    },
+    "Ipucu_Metni": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}
